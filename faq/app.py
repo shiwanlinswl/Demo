@@ -6,7 +6,7 @@ from faq.read_data import get_question_answer_list
 
 app = Flask(__name__)
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://root:shi930718@93.179.119.153:3306/Demo"
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql://root:xxx@93.179.119.153:3306/Demo"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
 app.config["QLALCHEMY_COMMIT_ON_TEARDOWN"] = True
 # 配置索引名称
