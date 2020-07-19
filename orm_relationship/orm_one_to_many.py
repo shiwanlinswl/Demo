@@ -15,7 +15,7 @@ db = SQLAlchemy(app)
 # 定义模型类-作者
 class Author(db.Model):
     __tablename__ = 'author'
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(32), unique=True)
     books = db.relationship('Book', backref='author')
 
@@ -26,7 +26,7 @@ class Author(db.Model):
 # 定义模型类-书名
 class Book(db.Model):
     __tablename__ = 'books'
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(32))
     au_book = db.Column(db.Integer, db.ForeignKey('author.id'))
 
@@ -34,9 +34,12 @@ class Book(db.Model):
         return 'Book:%s,%s' % (self.id, self.name)
 
 
-# db.create_all()
-# print("创建数据库成功")
+db.create_all()
+print("创建数据库成功")
 
 
 if __name__ == '__main__':
+    from Demo.orm_relationship.views import *
+    print(app.url_map)
     app.run()
+
